@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SharpTrooper.Entities
+namespace SharpTrooper.API.Models
 {
     /// <summary>
     /// A Star Wars film

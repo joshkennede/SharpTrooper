@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SharpTrooper.Entities
+namespace SharpTrooper.API.Models
 {
     public class SharpEntityResults<T> : SharpEntity where T : SharpEntity
     {

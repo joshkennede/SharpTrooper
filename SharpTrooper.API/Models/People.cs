@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SharpTrooper.Entities
+namespace SharpTrooper.API.Models
 {
     /// <summary>
     /// A person within the Star Wars universe
