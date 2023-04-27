@@ -8,66 +8,66 @@ namespace SharpTrooper.API.Manager
         /// <summary>
         /// get a specific people resource
         /// </summary>
-        public People GetPeople(string id);
+        public Task<People> GetPeople(string id);
 
         /// <summary>
         /// get all the people resources
         /// </summary>
-        public SharpEntityResults<People> GetAllPeople(string pageNumber = "1");
+        public Task<SharpEntityResults<People>> GetAllPeople(string pageNumber = "1");
 
         // Film
         /// <summary>
         /// get a specific film resource
         /// </summary>
-        public Film GetFilm(string id);
+        public Task<Film> GetFilm(string id);
 
         /// <summary>
         /// get all the film resources
         /// </summary>
-        public SharpEntityResults<Film> GetAllFilms(string pageNumber = "1");
+        public Task<SharpEntityResults<Film>> GetAllFilms(string pageNumber = "1");
 
         // Planet
         /// <summary>
         /// get a specific planet resource
         /// </summary>
-        public Planet GetPlanet(string id);
+        public Task<Planet> GetPlanet(string id);
 
         /// <summary>
         /// get all the planet resources
         /// </summary>
-        public SharpEntityResults<Planet> GetAllPlanets(string pageNumber = "1");
+        public Task<SharpEntityResults<Planet>> GetAllPlanets(string pageNumber = "1");
 
         // Specie
         /// <summary>
         /// get a specific specie resource
         /// </summary>
-        public Specie GetSpecie(string id);
+        public Task<Specie> GetSpecie(string id);
 
         /// <summary>
         /// get all the specie resources
         /// </summary>
-        public SharpEntityResults<Specie> GetAllSpecies(string pageNumber = "1");
+        public Task<SharpEntityResults<Specie>> GetAllSpecies(string pageNumber = "1");
 
         // Starship
         /// <summary>
         /// get a specific starship resource
         /// </summary>
-        public Starship GetStarship(string id);
+        public Task<Starship> GetStarship(string id);
 
         /// <summary>
         /// get all the starship resources
         /// </summary>
-        public SharpEntityResults<Starship> GetAllStarships(string pageNumber = "1");
+        public Task<SharpEntityResults<Starship>> GetAllStarships(string pageNumber = "1");
 
         // Vehicle
         /// <summary>
         /// get a specific vehicle resource
         /// </summary>
-        public Vehicle GetVehicle(string id);
+        public Task<Vehicle> GetVehicle(string id);
 
         /// <summary>
         /// get all the vehicle resources
         /// </summary>
-        public SharpEntityResults<Vehicle> GetAllVehicles(string pageNumber = "1");
+        public Task<SharpEntityResults<Vehicle>> GetAllVehicles(string pageNumber = "1");
     }
 }
