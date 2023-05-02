@@ -9,13 +9,13 @@ namespace SharpTrooper.API.Manager
 {
     public class ServicesManager : IServicesManager
     {
-        private readonly ILogger<ServicesManager> logger;
-        //private readonly string proxyName;
+        //private readonly ILogger<ServicesManager> logger;
+        private readonly string proxyName;
 
-        public ServicesManager(ILogger<ServicesManager> logger/*, string proxyName*/)
+        public ServicesManager(/*ILogger<ServicesManager> logger,*/ string proxyName)
         {
-            this.logger = logger;
-            //this.proxyName = proxyName;
+            //this.logger = logger;
+            this.proxyName = proxyName ?? string.Empty;
         }
 
         public async Task<People> GetPeople(string id) =>
@@ -62,11 +62,11 @@ namespace SharpTrooper.API.Manager
 
             using (var httpClientHandler = new HttpClientHandler())
             {
-                //if (isProxyEnabled)
-                //{
-                //    httpClientHandler.Proxy = new WebProxy(proxyName, 80);
-                //    httpClientHandler.UseProxy = true;
-                //}
+                if (isProxyEnabled)
+                {
+                    httpClientHandler.Proxy = new WebProxy(proxyName, 80);
+                    httpClientHandler.UseProxy = true;
+                }
 
                 using (var httpClient = new HttpClient(httpClientHandler))
                 {
