@@ -24,11 +24,17 @@ namespace SharpTrooper.API.Manager
         public async Task<SharpEntityResults<People>> GetAllPeople(string pageNumber = "1") =>
             await GetAllPaginated<People>("/people/", pageNumber);
 
+        public async Task<Schema> GetPeopleSchema() =>
+            await GetSchema("/people/schema/");
+
         public async Task<Film> GetFilm(string id) =>
             await GetSingle<Film>($"/films/{id}");
 
         public async Task<SharpEntityResults<Film>> GetAllFilms(string pageNumber = "1") =>
             await GetAllPaginated<Film>("/films/", pageNumber);
+
+        public async Task<Schema> GetFilmsSchema() =>
+            await GetSchema("/films/schema/");
 
         public async Task<Planet> GetPlanet(string id) =>
             await GetSingle<Planet>($"/planets/{id}");
@@ -36,11 +42,17 @@ namespace SharpTrooper.API.Manager
         public async Task<SharpEntityResults<Planet>> GetAllPlanets(string pageNumber = "1") =>
             await GetAllPaginated<Planet>("/planets/", pageNumber);
 
+        public async Task<Schema> GetPlanetsSchema() =>
+            await GetSchema("/planets/schema/");
+
         public async Task<Specie> GetSpecie(string id) =>
             await GetSingle<Specie>($"/species/{id}");
 
         public async Task<SharpEntityResults<Specie>> GetAllSpecies(string pageNumber = "1") =>
             await GetAllPaginated<Specie>("/species/", pageNumber);
+
+        public async Task<Schema> GetSpeciesSchema() =>
+            await GetSchema("/species/schema/");
 
         public async Task<Starship> GetStarship(string id) =>
             await GetSingle<Starship>($"/starships/{id}");
@@ -48,11 +60,17 @@ namespace SharpTrooper.API.Manager
         public async Task<SharpEntityResults<Starship>> GetAllStarships(string pageNumber = "1") =>
             await GetAllPaginated<Starship>("/starships/", pageNumber);
 
+        public async Task<Schema> GetStarshipsSchema() =>
+            await GetSchema("/starships/schema/");
+
         public async Task<Vehicle> GetVehicle(string id) =>
             await GetSingle<Vehicle>($"/vehicles/{id}");
 
         public async Task<SharpEntityResults<Vehicle>> GetAllVehicles(string pageNumber = "1") =>
             await GetAllPaginated<Vehicle>("/vehicles/", pageNumber);
+
+        public async Task<Schema> GetVehiclesSchema() =>
+            await GetSchema("/vehicles/schema/");
 
         #region Supporting Functions
 
@@ -158,6 +176,14 @@ namespace SharpTrooper.API.Manager
                 }
             }
             return result;
+        }
+
+        private async Task<Schema> GetSchema(string endpoint)
+        {
+            string json = await Request($"{Constants.APIURL}{endpoint}", HttpMethod.Options, null, false);
+            var swapiResponse = JsonConvert.DeserializeObject<Schema>(json);
+
+            return swapiResponse;
         }
 
         private async Task<SharpEntityResults<T>> GetAllPaginated<T>(string entityName, string pageNumber = "1") where T : SharpEntity
