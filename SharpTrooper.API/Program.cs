@@ -1,10 +1,12 @@
+using Microsoft.Extensions.DependencyInjection;
+
 using SharpTrooper.API.Manager;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddScoped<IServicesManager, ServicesManager>();
+builder.Services.AddScoped<IServicesManager>(i => new ServicesManager(string.Empty));
 
 builder.Services.AddControllers();
 
