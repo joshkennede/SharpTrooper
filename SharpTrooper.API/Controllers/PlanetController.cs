@@ -30,5 +30,13 @@ namespace SharpTrooper.API.Controllers
 			var result = await servicesManager.GetAllPlanets(pageNumber);
 			return result;
 		}
+
+		[HttpOptions]
+		[Route("schema/")]
+		public async Task<Schema> GetPlanetsSchema()
+		{
+			var result = await servicesManager.GetPlanetsSchema();
+			return result;
+		}
 	}
 }

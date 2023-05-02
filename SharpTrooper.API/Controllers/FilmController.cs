@@ -31,5 +31,13 @@ namespace SharpTrooper.API.Controllers
             var result = await servicesManager.GetAllFilms(pageNumber);
             return result;
         }
+
+        [HttpOptions]
+        [Route("schema/")]
+        public async Task<Schema> GetFilmsSchema()
+        {
+            var result = await servicesManager.GetFilmsSchema();
+            return result;
+        }
     }
 }

@@ -30,5 +30,13 @@ namespace SharpTrooper.API.Controllers
 			var result = await servicesManager.GetAllVehicles(pageNumber);
 			return result;
 		}
+
+		[HttpOptions]
+		[Route("schema/")]
+		public async Task<Schema> GetVehiclesSchema()
+		{
+			var result = await servicesManager.GetVehiclesSchema();
+			return result;
+		}
     }
 }

@@ -11,7 +11,7 @@ namespace SharpTrooper.API.Controllers
 	{
 		private readonly IServicesManager servicesManager;
 
-		public SpecieController(IServicesManager servicesManger)
+		public SpecieController(IServicesManager servicesManager)
 		{
 			this.servicesManager = servicesManager;
 		}
@@ -28,6 +28,14 @@ namespace SharpTrooper.API.Controllers
 		public async Task<SharpEntityResults<Specie>> GetAllSpecies([FromQuery]string pageNumber)
 		{
 			var result = await servicesManager.GetAllSpecies(pageNumber);
+			return result;
+		}
+
+		[HttpOptions]
+		[Route("schema/")]
+		public async Task<Schema> GetSpeciesSchema()
+		{
+			var result = await servicesManager.GetSpeciesSchema();
 			return result;
 		}
 	}
