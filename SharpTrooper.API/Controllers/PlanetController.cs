@@ -5,7 +5,7 @@ using SharpTrooper.API.Models;
 
 namespace SharpTrooper.API.Controllers
 {
-	[Route("api/planet/")]
+	[Route("api/planets/")]
 	[ApiController]
 	public class PlanetController : ControllerBase
 	{
