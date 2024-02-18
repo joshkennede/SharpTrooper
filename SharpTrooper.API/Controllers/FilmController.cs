@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SharpTrooper.API.Filters;
 using SharpTrooper.API.Manager;
 using SharpTrooper.API.Models;
 
@@ -26,7 +27,8 @@ namespace SharpTrooper.API.Controllers
 
         [HttpGet]
         [Route("{pageNumber}")]
-        public async Task<SharpEntityResults<Film>> GetAllPeople(string pageNumber)
+        [QueryParamFilter("search")]
+        public async Task<SharpEntityResults<Film>> GetAllFilms(string pageNumber = "1", string? search = null)
         {
             var result = await servicesManager.GetAllFilms(pageNumber);
             return result;
